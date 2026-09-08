@@ -1,0 +1,13 @@
+name = "Pronouns"
+author = "Scout, Queen & Friends"
+prefix = "sqf"
+mainprefix = "z"
+[version]
+major = 1
+minor = 0
+patch = 0
+build = 0
+git_hash = 0
+[lints.sqf.var_all_caps]
+options.ignore = [
+]
