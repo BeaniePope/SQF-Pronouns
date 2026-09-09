@@ -69,7 +69,7 @@ private _fnc_parameters = {
 };
 
 private _parameters = [_this, _fnc_parameters, _target, "sqf_pronouns_drawParameters", 0.1] call ace_common_fnc_cachedCall;
-_parameters set [2, _target modelToWorldVisual ((_target selectionPosition "pilot") vectorAdd [0,0,(_heightOffset + .25)])];
+_parameters set [2, _target modelToWorldVisual ((_target selectionPosition "pilot") vectorAdd [0,0,(_heightOffset + .23)])];
 
 
 drawIcon3D _parameters;
