@@ -1,5 +1,3 @@
-call SQF_fnc_initPronouns;
-
 ["CBA_settingsInitialized", {
     // Draw handle
     call SQF_fnc_updatePronounSettings;
@@ -12,3 +10,4 @@ call SQF_fnc_initPronouns;
         call SQF_fnc_updatePronounSettings;
     };
 }] call CBA_fnc_addEventHandler;
+

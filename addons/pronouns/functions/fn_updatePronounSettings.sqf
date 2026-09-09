@@ -14,10 +14,10 @@
  * 
  */
 
-if (isNil "ace_nametags_drawHandler" && {ace_nametags_showPlayerNames != 0}) then {
+if (isNil "sqf_pronouns_drawHandler" && {ace_nametags_showPlayerNames != 0}) then {
     sqf_pronouns_drawHandler = addMissionEventHandler ["Draw3D", {call SQF_fnc_onDrawPronoun;}];
 } else {
-    if (!isNil "ace_nametags_drawHandler" && {ace_nametags_showPlayerNames == 0}) then {
+    if (!isNil "sqf_pronouns_drawHandler" && {ace_nametags_showPlayerNames == 0}) then {
         removeMissionEventHandler ["Draw3D", sqf_pronouns_drawHandler];
         sqf_pronouns_drawHandler = nil;
     };

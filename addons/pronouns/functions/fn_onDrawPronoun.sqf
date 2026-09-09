@@ -23,11 +23,11 @@ private _flags = [[], ace_nametags_fnc_getCachedFlags, ACE_player, "ace_nametags
 _flags params ["_drawPronouns", "_drawRank", "_enabledTagsNearby", "_enabledTagsCursor", "_maxDistance"];
 
 private _onKeyPressAlphaMax = 1;
-if (ace_nametags_fnc_showPlayerNames == 3) then {
+if (ace_nametags_showPlayerNames == 3) then {
     _onKeyPressAlphaMax = 2 + (ace_nametags_showNamesTime - CBA_missionTime);
     _enabledTagsNearby = _enabledTagsNearby || {_onKeyPressAlphaMax > 0}
 };
-if (ace_nametags_fnc_showPlayerNames == 4) then {
+if (ace_nametags_showPlayerNames == 4) then {
     _onKeyPressAlphaMax = 2 + (ace_nametags_showNamesTime - CBA_missionTime);
     _enabledTagsCursor = _onKeyPressAlphaMax > 0;
 };
@@ -59,7 +59,7 @@ if (_enabledTagsNearby) then {
             params ["_unit"];
             private _forceShowTags = _unit getVariable ["ace_nametags_fnc_forceShowTags", false];
             _unit != ACE_player && {_forceShowTags || (side group _unit) == (side group ACE_player)} &&
-            {ace_nametags_fnc_showNamesForAI || _forceShowTags || {_unit call ace_common_fnc_isPlayer}}
+            {ace_nametags_showNamesForAI || _forceShowTags || {_unit call ace_common_fnc_isPlayer}}
         };
 
         private _nearMen = nearestObjects [_camPosAGL, ["CAManBase"], _maxDistance + 7];
@@ -102,7 +102,7 @@ if (_enabledTagsNearby) then {
             };
 
             private _alphaMax = _onKeyPressAlphaMax;
-            if ((ace_nametags_fnc_showSoundWaves == 2) && _drawSoundwave) then {
+            if ((ace_nametags_showSoundWaves == 2) && _drawSoundwave) then {
                 _drawPronouns = _drawSoundwave;
                 _drawRank = false;
                 _alphaMax = 1;
@@ -112,7 +112,7 @@ if (_enabledTagsNearby) then {
             // - decreases when _distance > _maxDistance
             // - increases when the unit is speaking
             // - it's clamped by the value of _onKeyPressAlphaMax unless soundwaves are forced on and the unit is talking
-            private _alpha = (((1 + ([0, 0.2] select _drawSoundwave) - 0.2 * (_distance - _maxDistance)) min 1) * ace_nametags_fnc_playerNamesMaxAlpha * _centerOffsetFactor) min _alphaMax;
+            private _alpha = (((1 + ([0, 0.2] select _drawSoundwave) - 0.2 * (_distance - _maxDistance)) min 1) * ace_nametags_playerNamesMaxAlpha * _centerOffsetFactor) min _alphaMax;
 
             if (_alpha > 0) then {
                 [ACE_player, _target, _alpha, _distance * 0.026, _drawPronouns] call sqf_fnc_drawPronouns;

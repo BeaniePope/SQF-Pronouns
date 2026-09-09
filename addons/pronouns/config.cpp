@@ -1,3 +1,5 @@
+#include "dialog\SQF_UserInput.hpp"
+
 class CfgPatches
 {
     class SQF_Anomalies
@@ -29,14 +31,32 @@ class CfgFunctions
 {
     class SQF 
     {
-        class Super_Ball
+        class functions
         {
             file = "\z\sqf\addons\pronouns\functions";
-            class initPronouns{};
             class drawPronouns{};
             class getPronouns{};
             class onDrawPronoun{};
             class updatePronounSettings{};
+            class selectPronoun{};
+        };
+    };
+};
+
+
+class CfgVehicles
+{
+    class Man;
+    class CAManBase: Man
+    {
+        class ACE_SelfActions {
+            class SQF_Pronouns {
+                displayName = "Set Pronouns";
+                condition = "";
+                exceptions[] = {};
+                statement = "createDialog 'SQF_UserInput_Dialog'";
+                //icon = "\z\dance.paa";
+            };
         };
     };
 };
