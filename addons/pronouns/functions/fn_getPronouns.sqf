@@ -21,12 +21,12 @@ params ["_unit", ["_showEffective", false]];
 private _pronouns = "";
 
 if (_unit isKindOf "CAManBase") then {
-    _pronouns = _unit getVariable ["SQF_Pronouns", "Ask me for Pronouns!"];
+    _pronouns = _unit getVariable ["SQF_Pronouns", ""];
 } else {
     if (_showEffective) then {
         _pronouns = [effectiveCommander _unit, false] call sqf_fnc_getPronouns;
     } else {
-        _pronouns = "Ask me for Pronouns!";
+        _pronouns = "";
     };
 };
 
