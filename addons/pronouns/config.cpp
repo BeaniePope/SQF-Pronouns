@@ -29,9 +29,9 @@ class Extended_PostInit_EventHandlers
 
 class CfgFunctions
 {
-    class SQF 
+    class SQF
     {
-        class functions
+        class pronouns
         {
             file = "\z\sqf\addons\pronouns\functions";
             class drawPronouns{};
